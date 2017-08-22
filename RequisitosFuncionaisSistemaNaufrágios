@@ -1,0 +1,16 @@
+SISTEMA DE CADASTRO DE NAUFRÁGIOS
+
+Especificação do sistema:
+O sistema tem como objetivo auxiliar inserção, amostragem e divulgação dos naufrágios ocorridos no perímetro Brasileiro de forma simplificada ao usuário com a possibilidade de inserção da API do Google Maps onde localiza o ponto exato do naufrágio através das suas coordenadas cadastradas. 
+
+Requisitos Funcionais
+RF. 1: Incluir cadastro de naufrágios 
+Descrição: Permite ao usuário incluir dados de naufrágios.
+RF. 2:  Alterar cadastros de naufrágios
+Descrição: Permite ao usuário alterar registros de naufrágios.
+RF 3: Detalhes do cadastro de naufrágios 
+Descrição: Permite ao usuário visualizar detalhes sobre o naufrágio
+RF. 4: Excluir cadastros de naufrágios
+Descrição: Permite ao usuário excluir o registro de naufrágios cadastrados.
+RF.5: Consulta cadastros de naufrágios
+Descrição: Permite ao usuário realizar consulta de naufrágios por datas.
