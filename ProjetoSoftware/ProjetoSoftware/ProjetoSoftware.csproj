@@ -156,7 +156,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\NaufragoController.cs" />
-    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LongitudeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -175,7 +174,6 @@
       <DependentUpon>201708280114501_GoogleMaps.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\Longitude.cs" />
     <Compile Include="Models\Naufrago.cs" />
@@ -190,11 +188,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="GoogleMaps\bg.png" />
     <Content Include="GoogleMaps\estilo.css" />
-    <Content Include="GoogleMaps\index.html" />
+    <Content Include="GoogleMaps\testeEnderecoindex.html" />
     <Content Include="GoogleMaps\jquery-ui.custom.min.js" />
     <Content Include="GoogleMaps\jquery.min.js" />
     <Content Include="GoogleMaps\mapa.js" />
-    <Content Include="GoogleMaps\readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

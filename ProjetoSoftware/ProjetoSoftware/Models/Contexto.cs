@@ -14,7 +14,7 @@ namespace ProjetoSoftware.Models
 
         }
 
-        public DbSet<Cliente> Cliente { get; set; }
+        
         public DbSet<Longitude> Longitude { get; set; }
         public DbSet<Naufrago> Naufrago { get; set; }
     }
