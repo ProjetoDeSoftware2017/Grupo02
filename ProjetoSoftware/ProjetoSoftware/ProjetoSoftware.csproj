@@ -155,28 +155,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\NaufragoController.cs" />
+    <Compile Include="Controllers\NaufragosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LongitudeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708222251527_Adcionar-data.cs" />
-    <Compile Include="Migrations\201708222251527_Adcionar-data.Designer.cs">
-      <DependentUpon>201708222251527_Adcionar-data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708242250150_LongitueADd.cs" />
-    <Compile Include="Migrations\201708242250150_LongitueADd.Designer.cs">
-      <DependentUpon>201708242250150_LongitueADd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708280114501_GoogleMaps.cs" />
-    <Compile Include="Migrations\201708280114501_GoogleMaps.Designer.cs">
-      <DependentUpon>201708280114501_GoogleMaps.cs</DependentUpon>
+    <Compile Include="Migrations\201708282355128_inicio.cs" />
+    <Compile Include="Migrations\201708282355128_inicio.Designer.cs">
+      <DependentUpon>201708282355128_inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\Longitude.cs" />
-    <Compile Include="Models\Naufrago.cs" />
+    <Compile Include="Models\Naufragos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -227,7 +218,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Naufrago\Create.cshtml" />
+    <Content Include="Views\Naufragos\Create.cshtml" />
+    <Content Include="Views\Naufragos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -248,14 +240,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708222251527_Adcionar-data.resx">
-      <DependentUpon>201708222251527_Adcionar-data.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708242250150_LongitueADd.resx">
-      <DependentUpon>201708242250150_LongitueADd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708280114501_GoogleMaps.resx">
-      <DependentUpon>201708280114501_GoogleMaps.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708282355128_inicio.resx">
+      <DependentUpon>201708282355128_inicio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

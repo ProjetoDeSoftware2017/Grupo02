@@ -3,7 +3,7 @@ namespace ProjetoSoftware.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class GoogleMaps : DbMigration
+    public partial class inicio : DbMigration
     {
         public override void Up()
         {

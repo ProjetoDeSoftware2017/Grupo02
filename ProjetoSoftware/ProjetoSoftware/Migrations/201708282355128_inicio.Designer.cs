@@ -7,13 +7,13 @@ namespace ProjetoSoftware.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class GoogleMaps : IMigrationMetadata
+    public sealed partial class inicio : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(GoogleMaps));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(inicio));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708280114501_GoogleMaps"; }
+            get { return "201708282355128_inicio"; }
         }
         
         string IMigrationMetadata.Source

@@ -6,11 +6,8 @@ using System.Web;
 
 namespace ProjetoSoftware.Models
 {
-    public class Naufrago
+    public class Naufragos
     {
-        [Key]
-        public int IdNaufrago { get; set; }
-
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Nome { get; set; }
 
@@ -20,6 +17,7 @@ namespace ProjetoSoftware.Models
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Data Ocorrido")]
         public DateTime DataOcorrido { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
@@ -28,6 +26,8 @@ namespace ProjetoSoftware.Models
         public string Motivo { get; set; }
         public string Obs { get; set; }
 
+        [Key]
+        public int IdNaufrago { get; set; }
         public String Latitude { get; set; }
         public String Longitude { get; set; }
     }

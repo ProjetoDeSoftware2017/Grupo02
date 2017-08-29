@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProjetoSoftware.Models.Naufragos>
+
+@{
+    ViewBag.Title = "Listar Naufragio";
+}
+
+<h2>Listagem Naufrágios</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataOcorrido)
+        </th>       
+        <th>
+            @Html.DisplayNameFor(model => model.Local)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Motivo)
+        </th>       
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOcorrido)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Local)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivo)
+        </td>        
+        
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdNaufrago }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdNaufrago }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.IdNaufrago })
+        </td>
+    </tr>
+}
+
+</table>

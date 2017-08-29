@@ -7,38 +7,40 @@ using System.Web.Mvc;
 
 namespace ProjetoSoftware.Controllers
 {
-    public class LongitudeController : Controller
+    public class NaufragosController : Controller
     {
         private Contexto db = new Contexto();
-
-        // GET: Longitude
+        // GET: Naufragos
         public ActionResult Index()
         {
-            var mostra = db.Longitude.OrderBy(p => p.Nome);
-            return View(mostra);
+            var listar = db.Naufragos.OrderBy(n => n.Estado);
+
+            return View(listar.ToList());
         }
 
-        // GET: Longitude/Details/5
+        // GET: Naufragos/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Longitude/Create
+        // GET: Naufragos/Create
         public ActionResult Create()
         {
+            
+
             return View();
         }
 
-        // POST: Longitude/Create
+        // POST: Naufragos/Create
         [HttpPost]
-        public ActionResult Create(Longitude longitude)
+        public ActionResult Create(Naufragos Naufragos)
         {
             try
             {
-                // TODO: Add insert logic here
-                db.Longitude.Add(longitude);
+                db.Naufragos.Add(Naufragos);
                 db.SaveChanges();
+                // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
             }
@@ -48,13 +50,13 @@ namespace ProjetoSoftware.Controllers
             }
         }
 
-        // GET: Longitude/Edit/5
+        // GET: Naufragos/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Longitude/Edit/5
+        // POST: Naufragos/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -70,13 +72,13 @@ namespace ProjetoSoftware.Controllers
             }
         }
 
-        // GET: Longitude/Delete/5
+        // GET: Naufragos/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Longitude/Delete/5
+        // POST: Naufragos/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
