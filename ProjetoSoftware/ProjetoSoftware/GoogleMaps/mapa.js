@@ -20,7 +20,7 @@ $(document).ready(function () {
 					var location = new google.maps.LatLng(latitude, longitude);
 					marker.setPosition(location);
 					map.setCenter(location);
-					map.setZoom(16);
+					map.setZoom(18);
 				}
 			}
 		})

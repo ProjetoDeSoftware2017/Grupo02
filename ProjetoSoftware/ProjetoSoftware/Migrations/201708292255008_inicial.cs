@@ -3,7 +3,7 @@ namespace ProjetoSoftware.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class inicio : DbMigration
+    public partial class inicial : DbMigration
     {
         public override void Up()
         {
@@ -17,6 +17,7 @@ namespace ProjetoSoftware.Migrations
                         DataOcorrido = c.DateTime(nullable: false, precision: 0),
                         Pais = c.String(nullable: false, unicode: false),
                         Local = c.String(unicode: false),
+                        Tipo = c.String(unicode: false),
                         Motivo = c.String(unicode: false),
                         Obs = c.String(unicode: false),
                         Latitude = c.String(unicode: false),

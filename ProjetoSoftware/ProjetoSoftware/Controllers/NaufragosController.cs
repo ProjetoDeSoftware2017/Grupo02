@@ -1,7 +1,9 @@
 ﻿using ProjetoSoftware.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,7 +15,7 @@ namespace ProjetoSoftware.Controllers
         // GET: Naufragos
         public ActionResult Index()
         {
-            var listar = db.Naufragos.OrderBy(n => n.Estado);
+            var listar = db.Naufragos.OrderBy(n => n.Nome);
 
             return View(listar.ToList());
         }
@@ -51,40 +53,48 @@ namespace ProjetoSoftware.Controllers
         }
 
         // GET: Naufragos/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int ? id)
         {
-            return View();
+            Naufragos naufrago = db.Naufragos.Find(id);
+            if (naufrago == null)
+            {
+                return HttpNotFound();
+            }
+            return View(naufrago);
         }
 
         // POST: Naufragos/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Naufragos naufrago)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(naufrago).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(naufrago);
         }
 
         // GET: Naufragos/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var naufragio = db.Naufragos.Find(id);
+            return View(naufragio);
         }
 
         // POST: Naufragos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
+                Naufragos naufragos = db.Naufragos.Find(id);
+                db.Naufragos.Remove(naufragos);
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }

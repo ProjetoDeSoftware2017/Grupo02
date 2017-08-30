@@ -23,7 +23,10 @@ namespace ProjetoSoftware.Models
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Pais { get; set; }
         public string Local { get; set; }
+        public string Tipo { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Motivo { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Obs { get; set; }
 
         [Key]

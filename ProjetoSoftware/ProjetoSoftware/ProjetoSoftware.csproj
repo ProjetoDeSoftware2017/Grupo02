@@ -160,9 +160,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708282355128_inicio.cs" />
-    <Compile Include="Migrations\201708282355128_inicio.Designer.cs">
-      <DependentUpon>201708282355128_inicio.cs</DependentUpon>
+    <Compile Include="Migrations\201708292255008_inicial.cs" />
+    <Compile Include="Migrations\201708292255008_inicial.Designer.cs">
+      <DependentUpon>201708292255008_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -190,6 +190,7 @@
     </Content>
     <Content Include="GoogleMaps\.gitattributes" />
     <Content Include="GoogleMaps\.gitignore" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\GoogleMapa.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -220,6 +221,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Naufragos\Create.cshtml" />
     <Content Include="Views\Naufragos\Index.cshtml" />
+    <Content Include="Views\Naufragos\Edit.cshtml" />
+    <Content Include="Views\Naufragos\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -240,8 +243,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708282355128_inicio.resx">
-      <DependentUpon>201708282355128_inicio.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708292255008_inicial.resx">
+      <DependentUpon>201708292255008_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
