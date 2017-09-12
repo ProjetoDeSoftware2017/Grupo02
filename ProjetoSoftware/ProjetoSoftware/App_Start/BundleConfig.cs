@@ -17,8 +17,7 @@ namespace ProjetoSoftware
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*",
-                        "~/Scripts/GoogleMapa"));
+                        "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
@@ -26,7 +25,30 @@ namespace ProjetoSoftware
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/css/bootstrap.min.css",
+                      "~/Content/css/metisMenu.min.css",
+                      "~/Content/css/timeline.css",
+                      "~/Content/css/estilo.css",
+                      "~/Content/css/startmin.css",
+                      "~/Content/css/morris.css",
+                      "~/Content/css/font-awesome.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+            //~/Scripts/Inputmask/dependencyLibs/inputmask.dependencyLib.js",  //if not using jquery
+            "~/Scripts/Inputmask/inputmask.js",
+            "~/Scripts/Inputmask/jquery.inputmask.js",
+            "~/Scripts/Inputmask/inputmask.extensions.js",
+            "~/Scripts/Inputmask/inputmask.date.extensions.js",
+            //and other extensions you want to include
+            "~/Scripts/Inputmask/inputmask.numeric.extensions.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
+            //~/Scripts/Inputmask/dependencyLibs/inputmask.dependencyLib.js",  //if not using jquery
+            "~/Content/js/jquery.min.js",
+            "~/Content/js/bootstrap.min.js",
+            "~/Content/js/metisMenu.min.js",
+            "~/Content/js/startmin.js"
+            ));
         }
     }
 }

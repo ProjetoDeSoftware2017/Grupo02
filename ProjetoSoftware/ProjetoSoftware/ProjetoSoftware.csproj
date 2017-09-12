@@ -63,6 +63,12 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -171,12 +177,51 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-social.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Content\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Content\css\dataTables\estilo.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\metisMenu.min.css" />
+    <Content Include="Content\css\morris.css" />
+    <Content Include="Content\css\startmin.css" />
+    <Content Include="Content\css\timeline.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Content\js\flot-data.js" />
+    <Content Include="Content\js\flot\excanvas.min.js" />
+    <Content Include="Content\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Content\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Content\js\flot\jquery.flot.categories.js" />
+    <Content Include="Content\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Content\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Content\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Content\js\flot\jquery.flot.image.js" />
+    <Content Include="Content\js\flot\jquery.flot.js" />
+    <Content Include="Content\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Content\js\flot\jquery.flot.pie.js" />
+    <Content Include="Content\js\flot\jquery.flot.resize.js" />
+    <Content Include="Content\js\flot\jquery.flot.selection.js" />
+    <Content Include="Content\js\flot\jquery.flot.stack.js" />
+    <Content Include="Content\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Content\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Content\js\flot\jquery.flot.time.js" />
+    <Content Include="Content\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\metisMenu.min.js" />
+    <Content Include="Content\js\morris-data.js" />
+    <Content Include="Content\js\morris.min.js" />
+    <Content Include="Content\js\raphael.min.js" />
+    <Content Include="Content\js\startmin.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="GoogleMaps\bg.png" />
     <Content Include="GoogleMaps\estilo.css" />
     <Content Include="GoogleMaps\testeEnderecoindex.html" />
@@ -190,6 +235,15 @@
     </Content>
     <Content Include="GoogleMaps\.gitattributes" />
     <Content Include="GoogleMaps\.gitignore" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\GoogleMapa.js" />

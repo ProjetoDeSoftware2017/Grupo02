@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace ProjetoSoftware.Controllers
 {
@@ -13,11 +14,33 @@ namespace ProjetoSoftware.Controllers
     {
         private Contexto db = new Contexto();
         // GET: Naufragos
-        public ActionResult Index()
-        {
-            var listar = db.Naufragos.OrderBy(n => n.Nome);
+        
 
-            return View(listar.ToList());
+
+
+        public ActionResult Index(int ? page=null )
+        {
+            page = (page ?? 1);
+
+            var dados = db.Naufragos.OrderBy(n => n.Nome).ToList();
+
+            return View(dados.ToPagedList((int)page,30));
+        }
+
+        [HttpGet]
+        public ActionResult CarregarDados()
+        {
+            var dados = from v in db.Naufragos
+                        select new
+                        {
+                            v.Nome,
+                            v.Estado,
+                            v.DataOcorrido,
+                            v.Local,
+                            v.Motivo
+                        };
+
+            return Json(new { data = dados }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Naufragos/Details/5
@@ -36,11 +59,11 @@ namespace ProjetoSoftware.Controllers
 
         // POST: Naufragos/Create
         [HttpPost]
-        public ActionResult Create(Naufragos Naufragos)
+        public ActionResult Create(Naufragos naufragos)
         {
             try
             {
-                db.Naufragos.Add(Naufragos);
+                db.Naufragos.Add(naufragos);
                 db.SaveChanges();
                 // TODO: Add insert logic here
 

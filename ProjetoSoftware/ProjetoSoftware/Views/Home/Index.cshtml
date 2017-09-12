@@ -6,42 +6,6 @@
 <h2>Inicial</h2>
 
 
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataCricao)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataCricao)
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdCliente }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdCliente }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdCliente })
-            </td>
-        </tr>
-    }
-
-</table>*@
-
-<h1>Google Mapas</h1>
-
-
-<div id="map" style="width:100%;height:400px"></div>
 
 
 @section Scripts {
