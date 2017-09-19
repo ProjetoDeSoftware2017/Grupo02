@@ -277,6 +277,8 @@
     <Content Include="Views\Naufragos\Index.cshtml" />
     <Content Include="Views\Naufragos\Edit.cshtml" />
     <Content Include="Views\Naufragos\Delete.cshtml" />
+    <Content Include="Views\Naufragos\Pesquisar.cshtml" />
+    <Content Include="Views\Naufragos\Detalhes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

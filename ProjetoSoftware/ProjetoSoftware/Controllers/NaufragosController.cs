@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using System.Globalization;
 
 namespace ProjetoSoftware.Controllers
 {
@@ -16,7 +17,62 @@ namespace ProjetoSoftware.Controllers
         // GET: Naufragos
         
 
+        public ActionResult Pesquisar(string search, string search2,string organiza,string currentFilter, int ? page = null)
+        {
+            var pesquisa = from s in db.Naufragos
+                           select s;
 
+            ViewBag.OrganizaNome = String.IsNullOrEmpty(organiza) ? "nome_desc:" : "";
+            ViewBag.OrganizaEstado = String.IsNullOrEmpty(organiza) ? "estado_desc:" : "";
+            ViewBag.OrganizaLocal = String.IsNullOrEmpty(organiza) ? "local_desc:" : "";
+            ViewBag.OrganizaData = organiza == "Date" ? "date_desc:" : "date";
+
+            if(search != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                search = currentFilter;
+            }
+            ViewBag.Currentfilter = search;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                pesquisa = pesquisa.Where(n => n.Nome.Contains(search) || n.Local.Contains(search) ||
+                n.Estado.Contains(search));
+            }            
+            DateTime searchDate;
+            if (DateTime.TryParseExact(search2,
+                "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out searchDate))
+            {
+                pesquisa = pesquisa.Where(s => s.DataOcorrido >= searchDate);
+            }
+
+            switch (organiza)
+            {
+                case "nome_desc":
+                    pesquisa = pesquisa.OrderByDescending(n => n.Nome);
+                    break;
+                case "estado_desc":
+                    pesquisa = pesquisa.OrderByDescending(n => n.Estado);
+                    break;
+                case "local_desc":
+                    pesquisa = pesquisa.OrderByDescending(n => n.Local);
+                    break;
+                case "date":
+                    pesquisa = pesquisa.OrderByDescending(n => n.DataOcorrido);
+                    break;
+            }
+
+           
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+
+            return View(pesquisa.OrderBy(n=>n.Nome).ToPagedList(pageNumber,pageSize));
+        }
+            
 
         public ActionResult Index(int ? page=null )
         {
@@ -44,9 +100,18 @@ namespace ProjetoSoftware.Controllers
         }
 
         // GET: Naufragos/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Detalhes(int ? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Naufragos naufrago = db.Naufragos.Find(id);
+            if (naufrago == null)
+            {
+                return HttpNotFound();
+            }
+            return View(naufrago);
         }
 
         // GET: Naufragos/Create
