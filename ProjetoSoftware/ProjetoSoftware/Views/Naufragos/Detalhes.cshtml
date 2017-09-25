@@ -12,75 +12,78 @@
 <h2>Detalhes Da Embarcação</h2>
 
 <div>
-    <h4>Naufragos</h4>
-    <hr />
-    <dl class="dl-horizontal">
-       
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+    
+    <div class="panel panel-primary">      
+       <div class="panel-heading">Embarcação</div>
+        <div class="panel panel-body">
+            <dl class="dl-horizontal">
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataOcorrido)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Estado)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataOcorrido)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataOcorrido)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Pais)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DataOcorrido)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Pais)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Pais)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Local)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Pais)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Local)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Local)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Local)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Motivo)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Tipo)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Motivo)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Motivo)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Obs)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Motivo)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Obs)
-        </dd>
-    </dl>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Obs)
+                </dt>
 
+                <dd>
+                    @Html.DisplayFor(model => model.Obs)
+                </dd>
+            </dl>
+        </div>
+    </div>
  </div>
 @Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "esconde" } })
 
@@ -104,10 +107,7 @@
     </div>
 </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdNaufrago }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

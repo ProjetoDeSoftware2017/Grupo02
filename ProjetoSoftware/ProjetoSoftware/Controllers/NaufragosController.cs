@@ -8,6 +8,10 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using System.Globalization;
+using System.Web.Helpers;
+using System.Drawing;
+using System.Web.UI.DataVisualization.Charting;
+using System.IO;
 
 namespace ProjetoSoftware.Controllers
 {
@@ -39,9 +43,14 @@ namespace ProjetoSoftware.Controllers
 
             if (!String.IsNullOrEmpty(search))
             {
-                pesquisa = pesquisa.Where(n => n.Nome.Contains(search) || n.Local.Contains(search) ||
-                n.Estado.Contains(search));
-            }            
+                pesquisa = pesquisa.Where(n => n.Nome.Contains(search) || n.Local.Contains(search));
+            }
+
+            if (!String.IsNullOrEmpty(search2))
+            {
+                pesquisa = pesquisa.Where(n =>n.Estado.Contains(search2));
+            }
+
             DateTime searchDate;
             if (DateTime.TryParseExact(search2,
                 "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out searchDate))
@@ -72,9 +81,11 @@ namespace ProjetoSoftware.Controllers
 
             return View(pesquisa.OrderBy(n=>n.Nome).ToPagedList(pageNumber,pageSize));
         }
-            
 
-        public ActionResult Index(int ? page=null )
+       
+    
+
+    public ActionResult Index(int ? page=null )
         {
             page = (page ?? 1);
 
