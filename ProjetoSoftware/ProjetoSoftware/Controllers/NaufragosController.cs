@@ -12,11 +12,20 @@ using System.Web.Helpers;
 using System.Drawing;
 using System.Web.UI.DataVisualization.Charting;
 using System.IO;
+using Newtonsoft.Json;
+using System.Web.Services;
+using System.Web.Script.Services;
+using System.Collections;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace ProjetoSoftware.Controllers
 {
     public class NaufragosController : Controller
     {
+        
         private Contexto db = new Contexto();
         // GET: Naufragos
         
@@ -82,10 +91,92 @@ namespace ProjetoSoftware.Controllers
             return View(pesquisa.OrderBy(n=>n.Nome).ToPagedList(pageNumber,pageSize));
         }
 
-       
+        public ActionResult pegarDados()
+        {
+            return View();
+        }
+
+        public ActionResult DadosColuna()
+        {
+            var chart = new System.Web.Helpers.Chart(width: 300, height: 220).AddTitle("Test");
+
+            var xValues = new List<String>();
+            var yValues = new List<String>();
+
+            var lista = (from n in db.Naufragos
+                         select new
+                         {
+                             n.Nome,
+                             n.Estado
+                         });
+
+            foreach (var item in lista)
+            {
+                xValues.Add(item.Nome);
+                yValues.Add(item.Estado);
+            }
+
+            chart.AddSeries(chartType: "Doughnut",
+                    xValue: xValues,
+                    yValues: yValues).Write("png");
+
+            return null;
+
+        }
+        //public ActionResult PegarDados2()
+        //{
+
+        //    string query = "SELECT count(IdNaufrago), Estado";
+        //    query += " FROM Naufragos group by Estado ";
+        //    string constr = ConfigurationManager.ConnectionStrings["Contexto"].ConnectionString;
+        //    List<Naufragos> chartData = new List<Naufragos>();
+
+        //    using (MySqlConnection con = new MySqlConnection(constr))
+        //    {
+        //        using (MySqlCommand cmd = new MySqlCommand(query))
+        //        {
+        //            cmd.CommandType = CommandType.Text;
+        //            cmd.Connection = con;
+        //            con.Open();
+        //            using (MySqlDataReader sdr = cmd.ExecuteReader())
+        //            {
+        //                while (sdr.Read())
+        //                {
+        //                    chartData.Add(new Naufragos
+        //                    {
+        //                        Estado = sdr["Estado"].ToString(),
+        //                        IdNaufrago = Convert.ToInt32(sdr["IdNaufrago"])
+        //                    });
+        //                }
+        //            }
+
+        //            con.Close();
+        //        }
+        //    }
+
+        //    return View(chartData);
+        //}
+
+        [HttpPost]
+        public JsonResult ExportReport(string imageData)
+        {
+            string fileName = Path.Combine(Server.MapPath("~/ExportImage"), DateTime.Now.ToString("ddMMyyyyhhmmsstt") + ".png");
+            using (FileStream fs = new FileStream(fileName, FileMode.Create))
+            {
+                using (BinaryWriter bw = new BinaryWriter(fs))
+                {
+                    byte[] data = Convert.FromBase64String(imageData);
+                    bw.Write(data);
+                    bw.Close();
+                }
+            }
+            return new JsonResult { Data = "Image saved successfully" };
+        }
+
     
 
-    public ActionResult Index(int ? page=null )
+
+        public ActionResult Index(int ? page=null )
         {
             page = (page ?? 1);
 

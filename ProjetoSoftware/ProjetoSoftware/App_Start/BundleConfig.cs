@@ -21,28 +21,18 @@ namespace ProjetoSoftware
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Scripts/Chart.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+            bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/css/bootstrap.min.css",
                       "~/Content/css/metisMenu.min.css",
                       "~/Content/css/timeline.css",
-                      "~/Content/css/estilo.css",
                       "~/Content/css/startmin.css",
                       "~/Content/css/morris.css",
                       "~/Content/css/font-awesome.min.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
-            //~/Scripts/Inputmask/dependencyLibs/inputmask.dependencyLib.js",  //if not using jquery
-            "~/Scripts/Inputmask/inputmask.js",
-            "~/Scripts/Inputmask/jquery.inputmask.js",
-            "~/Scripts/Inputmask/inputmask.extensions.js",
-            "~/Scripts/Inputmask/inputmask.date.extensions.js",
-            //and other extensions you want to include
-            "~/Scripts/Inputmask/inputmask.numeric.extensions.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/plugins").Include(
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
             //~/Scripts/Inputmask/dependencyLibs/inputmask.dependencyLib.js",  //if not using jquery
             "~/Content/js/jquery.min.js",
             "~/Content/js/bootstrap.min.js",

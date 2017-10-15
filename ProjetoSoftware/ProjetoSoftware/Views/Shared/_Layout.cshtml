@@ -6,12 +6,25 @@
     <title>@ViewBag.Title - Naufrágios do Brasil</title>
 
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCVVL8p5aARn932K8Fc8CnT8fq46s4m8Sc&amp;sensor=false"></script>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*<link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+   
+    <link href="~/Content/css/metisMenu.min.css" rel="stylesheet">
+    
+    <link href="~/Content/css/timeline.css" rel="stylesheet">
+    
+    <link href="~/Content/css/startmin.css" rel="stylesheet">
+    
+    <link href="~/Content/css/morris.css" rel="stylesheet">
+   
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css">*@
+
+    
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/inputmask")
-    @Scripts.Render("~/bundles/plugins")
+    @Scripts.Render("~/bundles/js")
     @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/bundles/css")    
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")    
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -125,6 +138,13 @@
 
     
     
-   
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Content/js/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Content/js/startmin.js"></script>*@
 </body>
 </html>

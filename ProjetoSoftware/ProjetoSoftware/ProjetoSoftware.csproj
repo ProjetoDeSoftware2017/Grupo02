@@ -181,6 +181,7 @@
     <Content Include="Content\css\bootstrap-social.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\chartist.min.css" />
     <Content Include="Content\css\dataTables\dataTables.bootstrap.css" />
     <Content Include="Content\css\dataTables\dataTables.responsive.css" />
     <Content Include="Content\css\dataTables\estilo.css" />
@@ -247,7 +248,11 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\chartist.min.js" />
     <Content Include="Scripts\GoogleMapa.js" />
+    <Content Include="Scripts\Index.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -280,6 +285,8 @@
     <Content Include="Views\Naufragos\Delete.cshtml" />
     <Content Include="Views\Naufragos\Pesquisar.cshtml" />
     <Content Include="Views\Naufragos\Detalhes.cshtml" />
+    <Content Include="Views\Naufragos\pegarDados.cshtml" />
+    <Content Include="Views\Naufragos\pegarDados - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
