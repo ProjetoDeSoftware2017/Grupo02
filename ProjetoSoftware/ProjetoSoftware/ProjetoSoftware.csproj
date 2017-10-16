@@ -162,6 +162,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LocalizacaoController.cs" />
     <Compile Include="Controllers\NaufragosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +193,8 @@
     <Content Include="Content\css\timeline.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Icons\barco.ico" />
+    <Content Include="Content\Icons\barco2.png" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\dataTables\dataTables.bootstrap.min.js" />
     <Content Include="Content\js\dataTables\jquery.dataTables.min.js" />
@@ -287,6 +290,7 @@
     <Content Include="Views\Naufragos\Detalhes.cshtml" />
     <Content Include="Views\Naufragos\pegarDados.cshtml" />
     <Content Include="Views\Naufragos\pegarDados - Copy.cshtml" />
+    <Content Include="Views\Localizacao\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
