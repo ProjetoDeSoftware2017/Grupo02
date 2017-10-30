@@ -13,7 +13,11 @@ namespace ProjetoSoftware.Controllers
         // GET: Localizacao
         public ActionResult Index()
         {
+            //List<Naufragos> list = new List<Naufragos>();
+
+
             ViewBag.ListarDropdown = db.Naufragos.Distinct().ToList();
+                
             return View();
         }
 

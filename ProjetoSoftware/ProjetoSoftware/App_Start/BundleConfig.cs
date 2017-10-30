@@ -20,9 +20,9 @@ namespace ProjetoSoftware
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/Chart.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/bootstrap.js",                      
+                      "~/Scripts/respond.js",
+                      "~/Scripts/Chart.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                       "~/Content/css/bootstrap.min.css",
@@ -34,7 +34,7 @@ namespace ProjetoSoftware
 
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
             //~/Scripts/Inputmask/dependencyLibs/inputmask.dependencyLib.js",  //if not using jquery
-            "~/Content/js/jquery.min.js",
+            "~/Content/js/jquery-1.10.2.min.js",
             "~/Content/js/bootstrap.min.js",
             "~/Content/js/metisMenu.min.js",
             "~/Content/js/startmin.js"

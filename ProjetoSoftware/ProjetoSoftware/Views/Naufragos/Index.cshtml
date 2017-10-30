@@ -3,9 +3,6 @@
 @{
     ViewBag.Title = "Listar Naufrágios";
 }
-
-
-
 <p>
     <a href="@Url.Action("Create", "Naufragos")" class="btn btn-success">
         Criar Novo
@@ -53,8 +50,8 @@
         </td>        
         
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id = item.IdNaufrago }, new {@class = "btn btn-success ajuste" }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.IdNaufrago }, new { @class = "btn btn-info ajuste" }) |
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdNaufrago }, new {@class = "btn btn-success ajuste" }) 
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.IdNaufrago }, new { @class = "btn btn-info ajuste" }) 
             @Html.ActionLink("Deletar", "Delete", new { id = item.IdNaufrago }, new { @class = "btn btn-danger ajuste" })
         </td>
     </tr>

@@ -17,14 +17,11 @@
     <link href="~/Content/css/morris.css" rel="stylesheet">
    
     <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type="text/css">*@
-
-    
+    @Styles.Render("~/bundles/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/js")
     @Scripts.Render("~/bundles/bootstrap")
-    @Styles.Render("~/bundles/css")    
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jqueryval")    
     @RenderSection("scripts", required: false)
 </head>
 <body>
@@ -111,6 +108,7 @@
                                     <a href="~/Naufragos/Index">Visualizar Embarcações</a>
                                     <a href="~/Naufragos/Create">Cadastrar Embarcações</a>
                                     <a href="~/Naufragos/Pesquisar">Pesquisar Embarcações</a>
+                                    <a href="~/Localizacao/Index">Pesquisar Mapa</a>
                                 </li>
 
                             </ul>
