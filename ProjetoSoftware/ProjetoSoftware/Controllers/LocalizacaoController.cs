@@ -14,17 +14,43 @@ namespace ProjetoSoftware.Controllers
         public ActionResult Index()
         {
             //List<Naufragos> list = new List<Naufragos>();
+            var UnitLst = new List<String>();
 
+            var UnitQuery = from d in db.Naufragos orderby d.Estado select d.Estado;
 
-            ViewBag.ListarDropdown = db.Naufragos.Distinct().ToList();
+            UnitLst.AddRange(UnitQuery.Distinct());
+            ViewBag.ListarDropdown = new SelectList(UnitLst);
                 
-            return View();
+            return View(db.Naufragos.ToList());
         }
 
-        public JsonResult PegaLocalizacao()
+        public ActionResult PegaLocalizacao(string outUnit, string address)
         {
-            var data = db.Naufragos.ToList();
-            return Json(data, JsonRequestBehavior.AllowGet);
+            var UnitLst = new List<string>();
+
+            var UnitQry = from d in db.Naufragos orderby d.Nome select d.Nome;
+
+            UnitLst.AddRange(UnitQry.Distinct());
+            ViewBag.outUnit = new SelectList(UnitLst);
+
+            string searchUnit = null;
+            searchUnit = (from s in db.Naufragos where s.Latitude.Contains(address) select s.Estado).FirstOrDefault();
+
+            if (!string.IsNullOrEmpty(outUnit))
+            {
+                var result = from s in db.Naufragos where s.Latitude.Contains(outUnit) select s;
+                return View("Index", result.ToList());
+            }
+            if (!String.IsNullOrEmpty(searchUnit))
+            {
+                var result = from s in db.Naufragos where s.Latitude.Contains(address) select s;
+                return View("Index", result.ToList());
+            }
+            else
+            {
+                //return View("Index", db.MapInfo.ToList());
+                return View("Index", new List<Models.Naufragos>());
+            }
         }
 
         public JsonResult PegarLocalizcaoPorId(int id)

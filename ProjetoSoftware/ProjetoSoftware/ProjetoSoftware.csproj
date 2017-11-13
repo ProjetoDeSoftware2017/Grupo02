@@ -291,6 +291,7 @@
     <Content Include="Views\Naufragos\pegarDados.cshtml" />
     <Content Include="Views\Naufragos\pegarDados - Copy.cshtml" />
     <Content Include="Views\Localizacao\Index.cshtml" />
+    <Content Include="Views\Localizacao\Index - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
