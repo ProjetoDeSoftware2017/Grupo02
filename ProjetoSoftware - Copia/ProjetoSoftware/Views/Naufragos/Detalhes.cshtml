@@ -1,0 +1,144 @@
+﻿@model ProjetoSoftware.Models.Naufragos
+
+@{
+    ViewBag.Title = "Embarcação";
+}
+<script type="text/javascript" src="~/GoogleMaps/mapa.js"></script>
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:600" type="text/css" rel="stylesheet" />
+<link href="~/GoogleMaps/estilo.css" type="text/css" rel="stylesheet" />
+
+
+<h2>Detalhes Da Embarcação</h2>
+
+<div>
+    
+    <div class="panel panel-primary">      
+       <div class="panel-heading">Embarcação</div>
+        <div class="panel panel-body">
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Estado)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataOcorrido)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DataOcorrido)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Pais)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Pais)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Local)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Local)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tipo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Motivo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Motivo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Obs)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Obs)
+                </dd>
+            </dl>
+        </div>
+    </div>
+ </div>
+@Html.EditorFor(model => model.Latitude, new { htmlAttributes = new { @class = "esconde" } })
+
+@Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "esconde" } })
+
+<div class="row">
+    <div class="form-group col-lg-6">
+        <div class="campos">
+            <label for="mapa">Mapa:</label>
+        </div>
+        <div id="mapa"></div>
+        <input type="hidden" id="txtLatitude" name="txtLatitude" />
+        <input type="hidden" id="txtLongitude" name="txtLongitude" />
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Editar" class="btn btn-primary" /> |
+            <a href="@Url.Action("Index","Naufragos")" class="btn btn-danger">Voltar</a>
+            @Html.ActionLink("Deletar", "Delete", new { id = Model.IdNaufrago })
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    var geocoder;
+    var map;
+    var marker;
+    var latitude = document.getElementById("Latitude").value;
+    var longitude = document.getElementById("Longitude").value;
+
+
+
+    function initialize() {
+
+        var latlng = new google.maps.LatLng(latitude, longitude);
+        var options = {
+            zoom: 6,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("mapa"), options);
+
+        geocoder = new google.maps.Geocoder();
+
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+        });
+
+        marker.setPosition(latlng);
+    }
+</script>
+<script type="text/javascript" src="~/GoogleMaps/mapa.js"></script>

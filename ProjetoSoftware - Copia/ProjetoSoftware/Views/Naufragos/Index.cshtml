@@ -1,0 +1,69 @@
+﻿@model PagedList.IPagedList<ProjetoSoftware.Models.Naufragos>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Listar Naufrágios";
+}
+<p>
+    <a href="@Url.Action("Create", "Naufragos")" class="btn btn-success">
+        Criar Novo
+        <span class="glyphicon glyphicon-plus" />
+    </a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().DataOcorrido)
+        </th>       
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Local)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Motivo)
+        </th>       
+       
+        <th>Ações</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOcorrido)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Local)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivo)
+        </td>        
+        
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.IdNaufrago }, new {@class = "btn btn-success ajuste" }) 
+            @Html.ActionLink("Detalhes", "Detalhes", new { id = item.IdNaufrago }, new { @class = "btn btn-info ajuste" }) 
+            @Html.ActionLink("Deletar", "Delete", new { id = item.IdNaufrago }, new { @class = "btn btn-danger ajuste" })
+        </td>
+    </tr>
+}
+
+</table>
+
+Página: @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) de @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new
+{
+    page,
+    sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter
+}))
