@@ -14,11 +14,14 @@ namespace ProjetoSoftware.Controllers
         public ActionResult Index()
         {
             //List<Naufragos> list = new List<Naufragos>();
+            var UnitLst = new List<String>();
 
+            var UnitQuery = from d in db.Naufragos orderby d.Estado select d.Estado;
 
-            ViewBag.ListarDropdown = db.Naufragos.Distinct().ToList();
+            UnitLst.AddRange(UnitQuery.Distinct());
+            ViewBag.ListarDropdown = new SelectList(UnitLst);
                 
-            return View();
+            return View(db.Naufragos.ToList());
         }
 
         public JsonResult PegaLocalizacao()
