@@ -1,118 +1,101 @@
 ﻿@model IEnumerable<ProjetoSoftware.Models.Naufragos>
-@{
-    ViewBag.Title = "Home Page";
-}
-<h2>Index</h2>
-@using (Html.BeginForm("PegaLocalizacao", "Localizacao"))
-{
-    <p>
-        Escolha: @Html.DropDownList("ListarDropdown", "All")
-        Endereço : @Html.TextBox("address", null)
-        <input type="submit" value="Pesquisar" />
-    </p>
-}
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div id="map"></div>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-       
-        <th></th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-          
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.案件編號 }) |
-                @Html.ActionLink("Details", "Details", new { id = item.案件編號 }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.案件編號 })*@
-            </td>
-        </tr>
-    }
-</table>
-<style type="text/css">
-    #map {
+<style>
+    #map-canvas {
+        width: 500px;
         height: 500px;
     }
 </style>
 
 
+<div id="map-canvas"></div>
+
+    Escolha: @Html.DropDownList("ListarDropdown", null , new { @onchange = "filterMarkers = this.value;" })
+
+
 <script>
-    var map;
-    var geocoder;
-    var nome = [];
-    var estado = [];
-    var address = [];
-    var t = 0;
+    var gmarkers1 = [];
+    var markers1 = [];
+    var teste = '@(ViewBag.Teste)';
+    var infowindow = new google.maps.InfoWindow({
+        content: ''
+    });
 
-    @foreach(var item in Model)
-    {
-        <text>
-    nome.push('@Html.DisplayFor(modelItem => item.Nome)');
-    estado.push('@Html.DisplayFor(modelItem => item.Estado)');
+    // Our markers
+    markers1 = [
+        //['0', 'Title 1', 52.4357808, 4.991315699999973, 'car'],
+        //['1', 'Title 2', 52.4357808, 4.981315699999973, 'third'],
+        //['2', 'Title 3', 52.4555687, 5.039231599999994, 'car'],
+        //['3', 'Title 4', 52.4555687, 5.029231599999994, 'second']
+        teste
+    ];
 
-        </text>
-    }
+    /**
+     * Function to init map
+     */
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 24.09, lng: 120.40 },
-            zoom: 10
-        });
+    function initialize() {
+        var center = new google.maps.LatLng(-13.15437606, -49.79003906);
+        var mapOptions = {
+            zoom: 12,
+            center: center,
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+        };
 
-        geocoder = new google.maps.Geocoder();
-
-        for (var i = 0; i < address.length; i++) {
-            geocodeAddress(geocoder, map, i);
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        for (i = 0; i < markers1.length; i++) {
+            addMarker(markers1[i]);
         }
     }
 
-    function geocodeAddress(geocoder, resultsMap, i) {
-        setTimeout(function () {
-            geocoder.geocode({ 'address': address[i] }, function (results, status) {
-                if (status === 'OK') {
-                    resultsMap.setCenter(results[0].geometry.location);
-                    var marker = new google.maps.Marker({
-                        map: resultsMap,
-                        position: results[0].geometry.location
-                    });
-                    var contentString = '<div id="content">' +
-                        '<div id="siteNotice">' +                        
-                        '<div id="bodyContent">' +
-                        '<p>Nome：' + nome[i] + '</p>' +
-                        '<p>Estado：' + estado[i] + '</p>' +
-                        '</div>' +
-                        '</div>';
-                    var infowindow = new google.maps.InfoWindow({
-                        content: contentString
-                    });
-                    marker.addListener('mouseover', function () {
-                        infowindow.open(map, marker);
-                    });
-                    marker.addListener('mouseout', function () {
-                        infowindow.close();
-                    });
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }, t++ * 500);
+    /**
+     * Function to add marker to map
+     */
 
+    function addMarker(marker) {
+        var category = marker[4];
+        var title = marker[1];
+        var pos = new google.maps.LatLng(marker[2], marker[3]);
+        var content = marker[1];
 
+        marker1 = new google.maps.Marker({
+            title: title,
+            position: pos,
+            category: category,
+            map: map
+        });
 
+        gmarkers1.push(marker1);
+
+        // Marker click listener
+        google.maps.event.addListener(marker1, 'click', (function (marker1, content) {
+            return function () {
+                console.log('Gmarker 1 gets pushed');
+                infowindow.setContent(content);
+                infowindow.open(map, marker1);
+                map.panTo(this.getPosition());
+                map.setZoom(15);
+            }
+        })(marker1, content));
     }
+
+    /**
+     * Function to filter markers by category
+     */
+
+    filterMarkers = function (category) {
+        for (i = 0; i < markers1.length; i++) {
+            marker = gmarkers1[i];
+            // If is same category or category not picked
+            if (marker.category == category || category.length === 0) {
+                marker.setVisible(true);
+            }
+            // Categories don't match 
+            else {
+                marker.setVisible(false);
+            }
+        }
+    }
+
+    // Init map
+    initialize();
 </script>

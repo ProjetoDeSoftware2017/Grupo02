@@ -58,5 +58,14 @@ namespace ProjetoSoftware.Controllers
             var data = db.Naufragos.Where(x => x.IdNaufrago == id).SingleOrDefault();
             return Json(data,JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult Data()
+        {
+            var dados = db.Naufragos.ToList();
+
+            ViewBag.Teste = dados;
+
+            return Json(dados,JsonRequestBehavior.AllowGet);
+        }
     }
 }
